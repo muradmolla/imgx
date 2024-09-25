@@ -13,7 +13,9 @@ func execute() error {
 		return fmt.Errorf("cannot init image. error :%s", err)
 	}
 
-	img.Gamma(setup.gamma)
+	if setup.gamma != 1 {
+		img.Gamma(setup.gamma)
+	}
 
 	img.Save(setup.output)
 
